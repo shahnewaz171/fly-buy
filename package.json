@@ -18,5 +18,18 @@
   "devDependencies": {
     "@babel/core": "^7.9.0"
   },
-  "private": true
+  "private": true,
+  "name": "fly-buy",
+  "description": "",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohammad-Asif-Iqbal/Fly-Buy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohammad-Asif-Iqbal/Fly-Buy/issues"
+  },
+  "homepage": "https://github.com/Mohammad-Asif-Iqbal/Fly-Buy#readme"
 }
