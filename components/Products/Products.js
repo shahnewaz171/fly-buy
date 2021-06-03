@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 
-import { View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { ProductsURL } from '../API/API';
 import ProductLists from './ProductLists/ProductLists';
 
-export default function Products(){
+export default function Products() {
     const [products, setProducts] = useState([]);
 
-    useEffect(()=>{
-        async function loadProducts(){
+    useEffect(() => {
+        async function loadProducts() {
             const response = await fetch(ProductsURL);
             const data = await response.json();
             setProducts(data);
-            return(data);
+            return (data);
         }
         loadProducts();
-    },[])
+    }, [])
 
-    console.log(products);
-    return(
+    return (
         <View>
-            <ProductLists></ProductLists>
+            {
+                products?.map(product =>
+                    <ProductLists
+                        product={product}
+                        key={product.id} />
+                )
+            }
         </View>
     );
 }
