@@ -1,14 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView, ScrollView } from "react-native";
-import Home from "./components/Home/Home";
+import { StyleSheet } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import Home from "./Components/Home/Home";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <Home></Home>
-      </ScrollView>
-    </SafeAreaView>
+    <SafeAreaProvider style={styles.container}>
+      <Home></Home>
+    </SafeAreaProvider>
   );
 }
 

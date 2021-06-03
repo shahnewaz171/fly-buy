@@ -1,13 +1,13 @@
-import React from 'react';
-import { StyleSheet, Text, SafeAreaView, View } from 'react-native';
-import Products from '../Products/Products';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Navbar from "../Navbar/Navbar";
 
-export default function Home(){
-    return (
-        <View>
-            <Products></Products>
-        </View>
-    );
+export default function Home() {
+  return (
+    <View>
+      <Navbar></Navbar>
+    </View>
+  );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
