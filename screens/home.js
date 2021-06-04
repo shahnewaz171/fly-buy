@@ -4,21 +4,25 @@ import { Text, View, FlatList, Image } from "react-native";
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
 import { globalStyles } from "../styles/global";
 import fakeData from '../fakeData/index';
+import { ScrollView } from "react-native";
 
 export default function Home({ navigation }) {
-    const [reviews, setReviews] = useState([
-        {title: 'Breath of fresh air', rating: 5, key: '1'},
-        {title: 'Gotta catch', rating: 3, key: '2'},
-        {title: 'Not so "Final" fantasy', rating: 4, key: '3'}
-    ])
+   
+    const products = fakeData;
+    console.log(products);
 
-    const users = fakeData;
-    console.log(users);
+    const [visible, setVisible] = useState(15);
+    const allProducts = products.slice(0, visible);
+
+    const loadMoreProducts =  () => {
+        setVisible(previousProducts => previousProducts + 15)
+    };
+
     return (
-        <View style={globalStyles.container}>
+        <ScrollView style={globalStyles.container}>
             <View style={styles.productStyle}>Products</View>
             {
-                users.map(pd => (
+                allProducts.map(pd => (
                     <Card key={pd.key}>
                         <View>
                             <Card.Image source={require('../Images/male.png')} style={styles.productImg}>
@@ -32,7 +36,9 @@ export default function Home({ navigation }) {
                     </Card>
                 ))
             }
-           
+            <View style={styles.loadButton}>
+                <Button onPress={loadMoreProducts}  title='Load More'></Button>
+            </View>
             
             {/* <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails')}>
                 <Text style={globalStyles.titleText}>Newaz</Text>
@@ -40,7 +46,7 @@ export default function Home({ navigation }) {
             <TouchableOpacity>
                 <Text style={globalStyles.titleText}>Mun</Text>
             </TouchableOpacity> */}
-        </View>
+        </ScrollView >
     );
 }
 
@@ -69,5 +75,13 @@ const styles = StyleSheet.create({
         color: '#f5b622de',
         fontWeight: 700,
         fontSize: '20px'
+    },
+    loadButton: {
+        marginBottom: '4rem',
+        marginTop: '1.5rem',
+        width: '10%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });
