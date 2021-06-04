@@ -22,6 +22,7 @@ export default function Products() {
             {
                 products?.map(product =>
                     <ProductLists
+                    
                         product={product}
                         key={product.id} />
                 )
