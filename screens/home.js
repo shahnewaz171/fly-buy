@@ -9,6 +9,7 @@ import { ScrollView } from "react-native";
 export default function Home({ navigation }) {
    
     const products = fakeData;
+    
     console.log(products);
 
     const [visible, setVisible] = useState(15);
