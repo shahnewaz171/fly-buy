@@ -7,7 +7,7 @@ import Navigator from "./routes/drawer";
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <Navigator></Navigator>
+      <Navigator> </Navigator>
     </SafeAreaProvider>
 
   );
