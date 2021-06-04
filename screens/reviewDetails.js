@@ -8,7 +8,8 @@ export default function ReviewDetails({ navigation }) {
     // }
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</Text>
+      <Text style={globalStyles.titleText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint architecto provident quaerat.</Text>
+
       {/* <Button title='back to home screen' onPress={pressHandler}></Button> */}
     </View>
   );
