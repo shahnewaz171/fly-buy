@@ -3,6 +3,7 @@ import { TouchableOpacity, StyleSheet } from "react-native";
 import { Text, View, FlatList, Image } from "react-native";
 import { Card, ListItem, Button, Icon } from 'react-native-elements';
 import { globalStyles } from "../styles/global";
+import fakeData from '../fakeData/index';
 
 export default function Home({ navigation }) {
     const [reviews, setReviews] = useState([
@@ -11,29 +12,28 @@ export default function Home({ navigation }) {
         {title: 'Not so "Final" fantasy', rating: 4, key: '3'}
     ])
 
-    const users = [
-        {
-           name: 'brynn',
-           avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
-        },
-    ]
-
+    const users = fakeData;
+    console.log(users);
     return (
         <View style={globalStyles.container}>
-            <Card>
-                <View>
-                    <Card.Image source={require('../Images/male.png')} style={styles.productImg}>
-                    </Card.Image>
-                </View>
-                <View style={styles.productTitle}>Yellow Coat Jacket </View>
-                <Text style={{marginBottom: 10}}>
-                    The idea with React Native Elements is more about component structure than actual design.
-                </Text>
-                <View style={styles.productFooter}>
-                    <Text style={styles.productPrice}>$234</Text>
-                    <Button style={styles.productButton} title='Buy Now' />
-                </View>
-            </Card>
+            <View style={styles.productStyle}>Products</View>
+            {
+                users.map(pd => (
+                    <Card key={pd.key}>
+                        <View>
+                            <Card.Image source={require('../Images/male.png')} style={styles.productImg}>
+                            </Card.Image>
+                        </View>
+                        <View style={styles.productTitle}>{pd.name}</View>
+                        <View style={styles.productFooter}>
+                            <Text style={styles.productPrice}>${pd.price}</Text>
+                            <Button style={styles.productButton} title='Buy Now' />
+                        </View>
+                    </Card>
+                ))
+            }
+           
+            
             {/* <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails')}>
                 <Text style={globalStyles.titleText}>Newaz</Text>
             </TouchableOpacity>
@@ -45,6 +45,12 @@ export default function Home({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    productStyle: {
+        fontSize: '24px',
+        marginLeft: '14px',
+        display: 'flex',
+        fontWeight: 700
+    },
     productImg: {
         width: '100%',
     },
