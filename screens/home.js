@@ -25,7 +25,7 @@ export default function Home({ navigation }) {
                 allProducts.map(pd => (
                     <Card key={pd.key}>
                         <View>
-                            <Card.Image source={require('../Images/male.png')} style={styles.productImg}>
+                            <Card.Image source={{ uri: pd.img }} style={styles.productImg}>
                             </Card.Image>
                         </View>
                         <View style={styles.productTitle}>{pd.name}</View>
@@ -39,13 +39,6 @@ export default function Home({ navigation }) {
             <View style={styles.loadButton}>
                 <Button onPress={loadMoreProducts}  title='Load More'></Button>
             </View>
-            
-            {/* <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails')}>
-                <Text style={globalStyles.titleText}>Newaz</Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
-                <Text style={globalStyles.titleText}>Mun</Text>
-            </TouchableOpacity> */}
         </ScrollView >
     );
 }
@@ -55,10 +48,11 @@ const styles = StyleSheet.create({
         fontSize: '24px',
         marginLeft: '14px',
         display: 'flex',
-        fontWeight: 700
+        fontWeight: 700,
     },
     productImg: {
         width: '100%',
+        objectFit: 'cover',
     },
     productTitle: {
         color: '#34265f',
