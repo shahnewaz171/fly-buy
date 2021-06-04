@@ -10,6 +10,7 @@ export default function App() {
     <SafeAreaProvider style={styles.container}>
       <Navigator></Navigator>
     </SafeAreaProvider>
+    
   );
 }
 
