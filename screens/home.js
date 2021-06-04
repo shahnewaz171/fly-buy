@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
-import { Button, Text, View, FlatList,  } from "react-native";
+import { Text, View, FlatList, Image } from "react-native";
+import { Card, ListItem, Button, Icon } from 'react-native-elements'
 import { globalStyles } from "../styles/global";
 
 export default function Home({ navigation }) {
@@ -10,16 +11,31 @@ export default function Home({ navigation }) {
         {title: 'Not so "Final" fantasy', rating: 4, key: '3'}
     ])
 
-    console.log(reviews);
+    const users = [
+        {
+           name: 'brynn',
+           avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg'
+        },
+    ]
 
     return (
         <View style={globalStyles.container}>
-            <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails')}>
+            <Card>
+                <Card.Image source={require('../Images/male.png')}>
+                    <Text style={{marginBottom: 10}}>
+                    The idea with React Native Elements is more about component structure than actual design.
+                    </Text>
+                    <Button
+                    icon={<Icon name='code' color='#ffffff' />}
+                    title='VIEW NOW' />
+                </Card.Image>
+            </Card>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('ReviewDetails')}>
                 <Text style={globalStyles.titleText}>Newaz</Text>
             </TouchableOpacity>
             <TouchableOpacity>
                 <Text style={globalStyles.titleText}>Mun</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     );
 }
