@@ -1,5 +1,4 @@
 import React from "react";
-import { ScrollView } from "react-native";
 import { StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigator from "./routes/drawer";
@@ -10,7 +9,7 @@ export default function App() {
     <SafeAreaProvider style={styles.container}>
       <Navigator></Navigator>
     </SafeAreaProvider>
-    
+
   );
 }
 
